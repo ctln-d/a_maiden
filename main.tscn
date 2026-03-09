@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://blmvdsyeqyx0s"]
+
+[ext_resource type="Terrain3DMaterial" uid="uid://p1sxgq7lgxyy" path="res://main_material.tres" id="1_ig7tw"]
+[ext_resource type="Terrain3DAssets" uid="uid://cgebl4aesg6li" path="res://main_terrain.tres" id="2_0xm2m"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Terrain3D" type="Terrain3D" parent="."]
+data_directory = "res://"
+material = ExtResource("1_ig7tw")
+assets = ExtResource("2_0xm2m")
+show_checkered = true
+top_level = true
+metadata/_edit_lock_ = true
