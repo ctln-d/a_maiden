@@ -1,6 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://blmvdsyeqyx0s"]
+[gd_scene load_steps=15 format=3 uid="uid://blmvdsyeqyx0s"]
 
 [ext_resource type="Terrain3DMaterial" uid="uid://p1sxgq7lgxyy" path="res://main_material.tres" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://b3yyh46ub6l7m" path="res://assets/ground/ground037_packed_albedo_height.png" id="2_h2yge"]
+[ext_resource type="Texture2D" uid="uid://b3jtauv5mxfg5" path="res://assets/ground/ground037_packed_normal_roughness.png" id="3_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://c2r7ri4qggfe8" path="res://assets/ground/ground068_packed_albedo_height.png" id="4_272bh"]
+[ext_resource type="Texture2D" uid="uid://l7feh5ir3r83" path="res://assets/ground/ground068_packed_normal_roughness.png" id="5_5vw27"]
+[ext_resource type="Texture2D" uid="uid://c8b7pa033mlvh" path="res://assets/ground/grassrock_packed_albedo_height.png" id="6_kek77"]
+[ext_resource type="Texture2D" uid="uid://klpl2qdgkf42" path="res://assets/ground/grassrock_packed_normal_roughness.png" id="7_4c57u"]
+[ext_resource type="PackedScene" uid="uid://bgdexbe1buvoe" path="res://player.tscn" id="8_5vw27"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ig7tw"]
 transparency = 4
@@ -20,8 +27,29 @@ last_lod = 0
 last_shadow_lod = 0
 lod0_range = 128.0
 
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_efxa6"]
+name = "ground 037"
+albedo_color = Color(0.43474233, 0.51035094, 0.20065147, 1)
+albedo_texture = ExtResource("2_h2yge")
+normal_texture = ExtResource("3_1bvp3")
+uv_scale = 0.814
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_dg77c"]
+name = "ground 068"
+id = 1
+albedo_color = Color(0.6802899, 0.78, 0.31980002, 1)
+albedo_texture = ExtResource("4_272bh")
+normal_texture = ExtResource("5_5vw27")
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_ycdy4"]
+name = "grass rock"
+id = 2
+albedo_texture = ExtResource("6_kek77")
+normal_texture = ExtResource("7_4c57u")
+
 [sub_resource type="Terrain3DAssets" id="Terrain3DAssets_h2yge"]
 mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_0xm2m")])
+texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_efxa6"), SubResource("Terrain3DTextureAsset_dg77c"), SubResource("Terrain3DTextureAsset_ycdy4")])
 
 [node name="Node3D" type="Node3D"]
 
@@ -29,6 +57,12 @@ mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_0xm2m")])
 data_directory = "res://"
 material = ExtResource("1_ig7tw")
 assets = SubResource("Terrain3DAssets_h2yge")
-show_checkered = true
 top_level = true
 metadata/_edit_lock_ = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.55883116, 0.82928145, 0, -0.82928145, 0.55883116, 45.068848, 67.484436, -1.8566895)
+
+[node name="Player" parent="." instance=ExtResource("8_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+visible = false

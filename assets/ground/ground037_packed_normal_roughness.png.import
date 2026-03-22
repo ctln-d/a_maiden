@@ -2,7 +2,7 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csgmfigamh57u"
+uid="uid://b3jtauv5mxfg5"
 path.s3tc="res://.godot/imported/ground037_packed_normal_roughness.png-2fd2985406541c50ca451fe13b8328a3.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
@@ -22,7 +22,7 @@ compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
-compress/normal_map=2
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1

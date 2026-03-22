@@ -1,10 +1,31 @@
-[gd_scene load_steps=2 format=3 uid="uid://dnnka5th1gldj"]
+[gd_scene load_steps=5 format=3 uid="uid://bj1rkh0kvw38b"]
 
-[ext_resource type="Texture2D" uid="uid://ocqr4kaowgws" path="res://icon.svg" id="1_mtyf4"]
+[ext_resource type="PackedScene" uid="uid://bgdexbe1buvoe" path="res://player.tscn" id="1_37kl0"]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_mf4mk"]
+size = Vector3(50, 1, 50)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_mtyf4")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_37kl0"]
+albedo_color = Color(0.19768, 0.28, 0.1036, 1)
 
-[node name="Node2D" type="Node2D" parent="."]
+[sub_resource type="QuadMesh" id="QuadMesh_8uh7m"]
+size = Vector2(50, 50)
+orientation = 1
+
+[node name="Node3D" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_mf4mk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+material_override = SubResource("StandardMaterial3D_37kl0")
+mesh = SubResource("QuadMesh_8uh7m")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.99235576, -0.123410866, 0, 0.0339566, -0.27304748, 0.9614012, -0.11864733, 0.9540518, 0.2751508, 15.412231, 9.983032, 3.6750488)
+
+[node name="Player" parent="." instance=ExtResource("1_37kl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
