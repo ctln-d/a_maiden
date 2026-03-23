@@ -1,13 +1,16 @@
-[gd_scene load_steps=15 format=3 uid="uid://blmvdsyeqyx0s"]
+[gd_scene load_steps=19 format=3 uid="uid://blmvdsyeqyx0s"]
 
 [ext_resource type="Terrain3DMaterial" uid="uid://p1sxgq7lgxyy" path="res://main_material.tres" id="1_ig7tw"]
-[ext_resource type="Texture2D" uid="uid://b3yyh46ub6l7m" path="res://assets/ground/ground037_packed_albedo_height.png" id="2_h2yge"]
-[ext_resource type="Texture2D" uid="uid://b3jtauv5mxfg5" path="res://assets/ground/ground037_packed_normal_roughness.png" id="3_1bvp3"]
-[ext_resource type="Texture2D" uid="uid://c2r7ri4qggfe8" path="res://assets/ground/ground068_packed_albedo_height.png" id="4_272bh"]
-[ext_resource type="Texture2D" uid="uid://l7feh5ir3r83" path="res://assets/ground/ground068_packed_normal_roughness.png" id="5_5vw27"]
-[ext_resource type="Texture2D" uid="uid://c8b7pa033mlvh" path="res://assets/ground/grassrock_packed_albedo_height.png" id="6_kek77"]
-[ext_resource type="Texture2D" uid="uid://klpl2qdgkf42" path="res://assets/ground/grassrock_packed_normal_roughness.png" id="7_4c57u"]
+[ext_resource type="Texture2D" uid="uid://b3yyh46ub6l7m" path="res://assets/ground/textures/ground037_packed_albedo_height.png" id="2_h2yge"]
+[ext_resource type="Texture2D" uid="uid://b3jtauv5mxfg5" path="res://assets/ground/textures/ground037_packed_normal_roughness.png" id="3_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://c2r7ri4qggfe8" path="res://assets/ground/textures/ground068_packed_albedo_height.png" id="4_272bh"]
+[ext_resource type="Texture2D" uid="uid://l7feh5ir3r83" path="res://assets/ground/textures/ground068_packed_normal_roughness.png" id="5_5vw27"]
+[ext_resource type="Texture2D" uid="uid://c8b7pa033mlvh" path="res://assets/ground/textures/grassrock_packed_albedo_height.png" id="6_kek77"]
+[ext_resource type="Texture2D" uid="uid://klpl2qdgkf42" path="res://assets/ground/textures/grassrock_packed_normal_roughness.png" id="7_4c57u"]
+[ext_resource type="Texture2D" uid="uid://bc7jio2txse48" path="res://assets/ground/textures/moss01_packed_albedo_height.png" id="8_4c57u"]
 [ext_resource type="PackedScene" uid="uid://bgdexbe1buvoe" path="res://player.tscn" id="8_5vw27"]
+[ext_resource type="Texture2D" uid="uid://h6p488l81ecq" path="res://assets/ground/textures/moss01_packed_normal_roughness.png" id="9_efxa6"]
+[ext_resource type="PackedScene" uid="uid://bii4bm5k21d1r" path="res://tree.tscn" id="11_efxa6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ig7tw"]
 transparency = 4
@@ -40,16 +43,26 @@ id = 1
 albedo_color = Color(0.6802899, 0.78, 0.31980002, 1)
 albedo_texture = ExtResource("4_272bh")
 normal_texture = ExtResource("5_5vw27")
+uv_scale = 0.558
 
 [sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_ycdy4"]
 name = "grass rock"
 id = 2
 albedo_texture = ExtResource("6_kek77")
 normal_texture = ExtResource("7_4c57u")
+uv_scale = 0.558
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_4c57u"]
+name = "moss 01"
+id = 3
+albedo_color = Color(0.52906674, 0.5290667, 0.5290667, 1)
+albedo_texture = ExtResource("8_4c57u")
+normal_texture = ExtResource("9_efxa6")
+uv_scale = 0.485
 
 [sub_resource type="Terrain3DAssets" id="Terrain3DAssets_h2yge"]
 mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_0xm2m")])
-texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_efxa6"), SubResource("Terrain3DTextureAsset_dg77c"), SubResource("Terrain3DTextureAsset_ycdy4")])
+texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_efxa6"), SubResource("Terrain3DTextureAsset_dg77c"), SubResource("Terrain3DTextureAsset_ycdy4"), SubResource("Terrain3DTextureAsset_4c57u")])
 
 [node name="Node3D" type="Node3D"]
 
@@ -65,4 +78,8 @@ transform = Transform3D(1, 0, 0, 0, 0.55883116, 0.82928145, 0, -0.82928145, 0.55
 
 [node name="Player" parent="." instance=ExtResource("8_5vw27")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
-visible = false
+
+[node name="Trees" type="Node3D" parent="."]
+
+[node name="Tree 01" parent="Trees" instance=ExtResource("11_efxa6")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -1.1922607, -0.45489502, -0.2611084)
