@@ -1,8 +1,5 @@
-[gd_scene load_steps=17 format=3 uid="uid://blmvdsyeqyx0s"]
+[gd_scene load_steps=10 format=3 uid="uid://blmvdsyeqyx0s"]
 
-[ext_resource type="Terrain3DMaterial" uid="uid://yyiuwqqk84sn" path="res://terrain3d data/new_terrain_3d_material.tres" id="4_lquwl"]
-[ext_resource type="Texture2D" uid="uid://b3yyh46ub6l7m" path="res://assets/ground/textures/ground037_packed_albedo_height.png" id="5_7mycd"]
-[ext_resource type="Texture2D" uid="uid://b3jtauv5mxfg5" path="res://assets/ground/textures/ground037_packed_normal_roughness.png" id="6_272bh"]
 [ext_resource type="PackedScene" uid="uid://bgdexbe1buvoe" path="res://player.tscn" id="8_5vw27"]
 [ext_resource type="PackedScene" uid="uid://bii4bm5k21d1r" path="res://tree.tscn" id="11_efxa6"]
 [ext_resource type="Texture2D" uid="uid://d15wvbvhubjhi" path="res://assets/sky/partly cloudy sky.hdr" id="12_dg77c"]
@@ -25,35 +22,6 @@ size = Vector3(50, 1, 50)
 [sub_resource type="PlaneMesh" id="PlaneMesh_5vw27"]
 material = SubResource("StandardMaterial3D_272bh")
 size = Vector2(50, 50)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1bvp3"]
-transparency = 4
-cull_mode = 2
-vertex_color_use_as_albedo = true
-backlight_enabled = true
-backlight = Color(0.5, 0.5, 0.5, 1)
-distance_fade_mode = 1
-distance_fade_min_distance = 128.0
-distance_fade_max_distance = 96.0
-
-[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_lquwl"]
-generated_type = 1
-height_offset = 0.5
-material_override = SubResource("StandardMaterial3D_1bvp3")
-last_lod = 0
-last_shadow_lod = 0
-lod0_range = 128.0
-
-[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_5vw27"]
-name = "ground 037"
-albedo_color = Color(0.8047426, 0.80474263, 0.8047426, 1)
-albedo_texture = ExtResource("5_7mycd")
-normal_texture = ExtResource("6_272bh")
-uv_scale = 0.8
-
-[sub_resource type="Terrain3DAssets" id="Terrain3DAssets_7mycd"]
-mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_lquwl")])
-texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_5vw27")])
 
 [node name="Node3D" type="Node3D"]
 
@@ -81,10 +49,3 @@ visible = false
 
 [node name="Tree 01" parent="Trees" instance=ExtResource("11_efxa6")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 1.3991699, 0, -0.619)
-
-[node name="Terrain3D" type="Terrain3D" parent="."]
-data_directory = "res://assets/heightmap"
-material = ExtResource("4_lquwl")
-assets = SubResource("Terrain3DAssets_7mycd")
-top_level = true
-metadata/_edit_lock_ = true

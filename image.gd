@@ -4,7 +4,7 @@ func _ready():
 	var noise = FastNoiseLite.new()
 	noise.noise_type = FastNoiseLite.TYPE_SIMPLEX
 	noise.fractal_type = FastNoiseLite.FRACTAL_FBM
-	noise.frequency = 0.02
+	noise.frequency = 0.1
 	noise.fractal_octaves = 6
 
 	var size = 1024

@@ -74,4 +74,5 @@ show_checkered = true
 top_level = true
 script = ExtResource("1_60b8f")
 height_file_name = "C:/Users/caitl/Documents/a_maiden/heightmap.exr"
+import_scale = 0.2
 metadata/_edit_lock_ = true
