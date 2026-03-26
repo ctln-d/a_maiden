@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://blmvdsyeqyx0s"]
+[gd_scene load_steps=12 format=3 uid="uid://blmvdsyeqyx0s"]
 
+[ext_resource type="Shader" uid="uid://c3m7gtgt526qs" path="res://repetition.tres" id="2_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://bgdexbe1buvoe" path="res://player.tscn" id="8_5vw27"]
 [ext_resource type="PackedScene" uid="uid://bii4bm5k21d1r" path="res://tree.tscn" id="11_efxa6"]
 [ext_resource type="Texture2D" uid="uid://d15wvbvhubjhi" path="res://assets/sky/partly cloudy sky.hdr" id="12_dg77c"]
@@ -23,6 +24,10 @@ size = Vector3(50, 1, 50)
 material = SubResource("StandardMaterial3D_272bh")
 size = Vector2(50, 50)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lquwl"]
+render_priority = 0
+shader = ExtResource("2_1bvp3")
+
 [node name="Node3D" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -32,7 +37,6 @@ environment = SubResource("Environment_efxa6")
 transform = Transform3D(1, 0, 0, 0, 0.55883116, 0.82928145, 0, -0.82928145, 0.55883116, 45.068848, 67.484436, -1.8566895)
 
 [node name="Ground" type="StaticBody3D" parent="."]
-visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
@@ -40,6 +44,7 @@ shape = SubResource("BoxShape3D_272bh")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
 mesh = SubResource("PlaneMesh_5vw27")
+surface_material_override/0 = SubResource("ShaderMaterial_lquwl")
 
 [node name="Player" parent="." instance=ExtResource("8_5vw27")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
