@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://bfefru5lebmw2"]
+
+[ext_resource type="Texture2D" uid="uid://d15wvbvhubjhi" path="res://assets/sky/partly cloudy sky.hdr" id="1_m3mdi"]
+[ext_resource type="PackedScene" uid="uid://bgdexbe1buvoe" path="res://player.tscn" id="2_ok2jr"]
+[ext_resource type="PackedScene" uid="uid://bii4bm5k21d1r" path="res://tree.tscn" id="3_et5ox"]
+[ext_resource type="Terrain3DMaterial" uid="uid://yyiuwqqk84sn" path="res://terrain3d data/new_terrain_3d_material.tres" id="4_8dl3p"]
+[ext_resource type="Texture2D" uid="uid://b3yyh46ub6l7m" path="res://assets/ground/textures/ground037_packed_albedo_height.png" id="5_uu8yv"]
+[ext_resource type="Texture2D" uid="uid://b3jtauv5mxfg5" path="res://assets/ground/textures/ground037_packed_normal_roughness.png" id="6_0aefg"]
+[ext_resource type="Texture2D" uid="uid://c8b7pa033mlvh" path="res://assets/ground/textures/grassrock_packed_albedo_height.png" id="7_v78i8"]
+[ext_resource type="Texture2D" uid="uid://klpl2qdgkf42" path="res://assets/ground/textures/grassrock_packed_normal_roughness.png" id="8_6iyis"]
+[ext_resource type="Texture2D" uid="uid://c2r7ri4qggfe8" path="res://assets/ground/textures/ground068_packed_albedo_height.png" id="9_7fhox"]
+[ext_resource type="Texture2D" uid="uid://l7feh5ir3r83" path="res://assets/ground/textures/ground068_packed_normal_roughness.png" id="10_77xr6"]
+[ext_resource type="Texture2D" uid="uid://bc7jio2txse48" path="res://assets/ground/textures/moss01_packed_albedo_height.png" id="11_w7ivt"]
+[ext_resource type="Texture2D" uid="uid://h6p488l81ecq" path="res://assets/ground/textures/moss01_packed_normal_roughness.png" id="12_x23mu"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ycdy4"]
+panorama = ExtResource("1_m3mdi")
+
+[sub_resource type="Sky" id="Sky_efxa6"]
+sky_material = SubResource("PanoramaSkyMaterial_ycdy4")
+
+[sub_resource type="Environment" id="Environment_efxa6"]
+background_mode = 2
+sky = SubResource("Sky_efxa6")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_272bh"]
+size = Vector3(50, 1, 50)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_272bh"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5vw27"]
+material = SubResource("StandardMaterial3D_272bh")
+size = Vector2(50, 50)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1bvp3"]
+transparency = 4
+cull_mode = 2
+vertex_color_use_as_albedo = true
+backlight_enabled = true
+backlight = Color(0.5, 0.5, 0.5, 1)
+distance_fade_mode = 1
+distance_fade_min_distance = 128.0
+distance_fade_max_distance = 96.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_lquwl"]
+generated_type = 1
+height_offset = 0.5
+material_override = SubResource("StandardMaterial3D_1bvp3")
+last_lod = 0
+last_shadow_lod = 0
+lod0_range = 128.0
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_7mycd"]
+name = "ground 037"
+albedo_texture = ExtResource("5_uu8yv")
+normal_texture = ExtResource("6_0aefg")
+uv_scale = 1.6
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_074og"]
+name = "grass rock"
+id = 1
+albedo_texture = ExtResource("7_v78i8")
+normal_texture = ExtResource("8_6iyis")
+uv_scale = 1.6
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_cegan"]
+name = "ground 068"
+id = 2
+albedo_texture = ExtResource("9_7fhox")
+normal_texture = ExtResource("10_77xr6")
+uv_scale = 1.6
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_82xsv"]
+name = "moss 01"
+id = 3
+albedo_texture = ExtResource("11_w7ivt")
+normal_texture = ExtResource("12_x23mu")
+uv_scale = 1.6
+
+[sub_resource type="Terrain3DAssets" id="Terrain3DAssets_7mycd"]
+mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_lquwl")])
+texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_7mycd"), SubResource("Terrain3DTextureAsset_074og"), SubResource("Terrain3DTextureAsset_cegan"), SubResource("Terrain3DTextureAsset_82xsv")])
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_efxa6")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.55883116, 0.82928145, 0, -0.82928145, 0.55883116, 45.068848, 67.484436, -1.8566895)
+
+[node name="Ground" type="StaticBody3D" parent="."]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_272bh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("PlaneMesh_5vw27")
+
+[node name="Player" parent="." instance=ExtResource("2_ok2jr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 180.51222)
+
+[node name="Trees" type="Node3D" parent="."]
+visible = false
+
+[node name="Tree 01" parent="Trees" instance=ExtResource("3_et5ox")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 1.3991699, 0, -0.619)
+
+[node name="Terrain3D" type="Terrain3D" parent="."]
+data_directory = "res://assets/heightmap"
+material = ExtResource("4_8dl3p")
+assets = SubResource("Terrain3DAssets_7mycd")
+top_level = true
+metadata/_edit_lock_ = true
