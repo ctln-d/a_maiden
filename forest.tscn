@@ -1,3 +1,13 @@
 [gd_scene format=3 uid="uid://bfefru5lebmw2"]
 
+[ext_resource type="Terrain3DAssets" uid="uid://bqfs4p0shn14u" path="res://forest terrain/new_terrain_3d_assets.tres" id="1_lifw2"]
+[ext_resource type="Terrain3DMaterial" uid="uid://bubwy2vn41hgp" path="res://forest terrain/new_terrain_3d_material.tres" id="1_stcry"]
+
 [node name="Node3D" type="Node3D" unique_id=1205439742]
+
+[node name="Terrain3D" type="Terrain3D" parent="." unique_id=899633213]
+data_directory = "res://forest terrain"
+material = ExtResource("1_stcry")
+assets = ExtResource("1_lifw2")
+top_level = true
+metadata/_edit_lock_ = true
