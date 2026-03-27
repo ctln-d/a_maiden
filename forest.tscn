@@ -2,6 +2,7 @@
 
 [ext_resource type="Terrain3DAssets" uid="uid://bqfs4p0shn14u" path="res://forest terrain/new_terrain_3d_assets.tres" id="1_lifw2"]
 [ext_resource type="Terrain3DMaterial" uid="uid://bubwy2vn41hgp" path="res://forest terrain/new_terrain_3d_material.tres" id="1_stcry"]
+[ext_resource type="PackedScene" uid="uid://bgdexbe1buvoe" path="res://player.tscn" id="3_uq144"]
 
 [node name="Node3D" type="Node3D" unique_id=1205439742]
 
@@ -11,3 +12,9 @@ material = ExtResource("1_stcry")
 assets = ExtResource("1_lifw2")
 top_level = true
 metadata/_edit_lock_ = true
+
+[node name="Player" parent="." unique_id=1662557492 instance=ExtResource("3_uq144")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 157.99876, 14.0144005, 180.75789)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1307760482]
+transform = Transform3D(0.99989724, -0.00792575, 0.0119454125, 0.0077044587, 0.99979997, 0.018457098, -0.012089322, -0.018363161, 0.99975824, 183.95792, 167.05833, 148.97205)
