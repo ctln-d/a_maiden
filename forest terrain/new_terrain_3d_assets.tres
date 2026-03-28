@@ -2,6 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://b3yyh46ub6l7m" path="res://assets/ground/textures/ground037_packed_albedo_height.png" id="1_kki0c"]
 [ext_resource type="Texture2D" uid="uid://b3jtauv5mxfg5" path="res://assets/ground/textures/ground037_packed_normal_roughness.png" id="2_yu5kb"]
+[ext_resource type="Texture2D" uid="uid://c2r7ri4qggfe8" path="res://assets/ground/textures/ground068_packed_albedo_height.png" id="3_od8yf"]
+[ext_resource type="Texture2D" uid="uid://l7feh5ir3r83" path="res://assets/ground/textures/ground068_packed_normal_roughness.png" id="4_u6mq8"]
+[ext_resource type="Texture2D" uid="uid://c8b7pa033mlvh" path="res://assets/ground/textures/grassrock_packed_albedo_height.png" id="5_ib121"]
+[ext_resource type="Texture2D" uid="uid://klpl2qdgkf42" path="res://assets/ground/textures/grassrock_packed_normal_roughness.png" id="6_t4502"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mvm06"]
 transparency = 4
@@ -23,10 +27,25 @@ lod0_range = 128.0
 
 [sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_od8yf"]
 name = "ground037"
+albedo_color = Color(0.72, 0.70440006, 0.5328, 1)
 albedo_texture = ExtResource("1_kki0c")
 normal_texture = ExtResource("2_yu5kb")
-uv_scale = 0.28
+uv_scale = 0.842
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_ib121"]
+name = "ground 068"
+id = 1
+albedo_texture = ExtResource("3_od8yf")
+normal_texture = ExtResource("4_u6mq8")
+uv_scale = 1.093
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_8rf5y"]
+name = "grass rock"
+id = 2
+albedo_texture = ExtResource("5_ib121")
+normal_texture = ExtResource("6_t4502")
+uv_scale = 0.265
 
 [resource]
 mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_vmuxp")])
-texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_od8yf")])
+texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_od8yf"), SubResource("Terrain3DTextureAsset_ib121"), SubResource("Terrain3DTextureAsset_8rf5y")])

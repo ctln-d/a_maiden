@@ -14,7 +14,7 @@ top_level = true
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." unique_id=1662557492 instance=ExtResource("3_uq144")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 157.99876, 14.0144005, 180.75789)
+transform = Transform3D(-0.944158, 0, -0.32949293, 0, 1, 0, 0.32949293, 0, -0.944158, 134.13962, 17.495346, 19.486013)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1307760482]
-transform = Transform3D(0.99989724, -0.00792575, 0.0119454125, 0.0077044587, 0.99979997, 0.018457098, -0.012089322, -0.018363161, 0.99975824, 183.95792, 167.05833, 148.97205)
+transform = Transform3D(0.81808686, 0.5736956, -0.04009103, -0.5683387, 0.8171636, 0.096098356, 0.08789212, -0.055831518, 0.9945641, 145.7039, 224.20633, 159.86607)
